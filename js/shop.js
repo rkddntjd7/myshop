@@ -2,6 +2,13 @@
    const listAll = document.getElementsByClassName('list-all')[0];
    const cart = document.getElementById('cart');
    const close = document.getElementById('close');
+   const changeImg = document.querySelectorAll('.simg');
+
+   changeImg.forEach (function(el) {
+      el.addEventListener('mouseenter', function(event){
+         console.log(event.target.src);
+      });
+   });
 
    listAll.addEventListener("click", changeNav);
    cart.addEventListener('click', cartBoxView);
@@ -33,51 +40,36 @@
 //    }
   
 
-//// 슬라이드쇼 
-let slideIndex = 0;
-showSlides();
-
-function showSlides() {
-   let i;
-   const slides = document.getElementsByClassName('img-slide');
-   const dot = document.getElementsByClassName('dot');
-
-   for( i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none";
-      dot[i].classList.remove("active");
+const btnRight = document.getElementById('btn-right');
+const btnLeft = document.getElementById('btn-left');
+const ptIn = document.getElementById("ptIn");
+let ps = 0;
+btnRight.onclick = function(){
+   ps = ptIn.offsetLeft;
+   if (ps < 0) {
+   ps += 50;
+   ptIn.style.left = ps + "px";
    }
-   slideIndex++;
-   if(slideIndex > slides.length){
-      slideIndex = 1;
+}
+btnLeft.onclick = function() {
+   ps = ptIn.offsetLeft;
+   if (ps > -200) {
+   ps -= 50;
+   ptIn.style.left = ps + "px";
    }
-   slides[slideIndex -1].style.display = "block";
-   dot[slideIndex-1].classList.add('active');
-   setTimeout(showSlides, 5000);
 }
 
 
 
+
 }());
-document.getElementsByClassName('tablinks')[0].click();
+
 
 function viewQuick() {
    document.getElementsByClassName('quick')[0].classList.toggle('action');
 }
 
-function openBest(e, bid){
- 
-   const tabcontent = document.getElementsByClassName('besttabcontent');
-   for(i=0; i<tabcontent.length; i++){
-      tabcontent[i].style.display="none";
-   }
-   const tablinks = document.getElementsByClassName('tablinks');
-   for(i=0; i<tablinks.length; i++){
-      tablinks[i].classList.remove('active');
-   }
-   
-   document.getElementById(bid).style.display = 'block';
-   e.currentTarget.classList.add('active');
-}
+
 
 function viewTab(e){
    const tabcontent = document.getElementsByClassName('tabcontent');
@@ -94,5 +86,7 @@ function viewTab(e){
 
    tabcontent[e].classList.add('active');
    tabs.children[e].classList.add('active');
-}   
+}
+
+
 
