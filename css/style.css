@@ -1,3 +1,4 @@
+@charset "utf-8";
 @import url('bootstrap-reboot.min.css');
 @import url('bootstrap-grid.min.css');
 @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap');
@@ -1047,8 +1048,8 @@ ul.quick-btns i {
     margin-right: 10px;
 }
 
-.fa-chevron-right,
-.fa-chevron-left {
+.fa-chevron-left,
+.fa-chevron-right {
     position: absolute;
     font-size: 30px;
     color: #ccc;
@@ -1065,7 +1066,7 @@ ul.quick-btns i {
 }
 
 .mainProduct {
-    list-style: none;
+    list-style-type: none;
     margin: 0;
     padding: 0;
     border-bottom: 1px solid #ddd;
@@ -1101,7 +1102,6 @@ ul.quick-btns i {
     width: 120px;
 }
 
-
 .big del {
     color: #e8767d;
 }
@@ -1113,7 +1113,7 @@ ul.quick-btns i {
 }
 
 .addProduct {
-    list-style: none;
+    list-style-type: none;
     display: flex;
     padding-top: 10px;
     padding-bottom: 10px;
@@ -1131,4 +1131,167 @@ ul.quick-btns i {
 
 .addProduct li#remove {
     width: 6%;
+}
+
+.addbox {
+    border: 1px solid #ddd;
+    width: 50px;
+    display: flex;
+    justify-content: space-between;
+}
+
+/********** main ******************/
+input[type=radio].color,
+input[type=radio].size {
+    display: none;
+}
+
+label.colors {
+    position: relative;
+    display: inline-block;
+    width: 80px;
+    text-align: center;
+    cursor: pointer;
+    vertical-align: top;
+}
+
+label.colors.rgray {
+    margin-left: -30px;
+}
+
+label.colors span {
+    display: block;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border-width: 1px;
+    border-style: solid;
+    margin-right: 10px;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+label.colors.rgray span {
+    border-color: gray;
+}
+
+label.colors.rblack span {
+    border-color: black;
+}
+
+label.colors.purple span {
+    border-color: purple;
+}
+
+label.colors.pink span {
+    border-color: pink;
+}
+
+label.colors span::after {
+    display: block;
+    content: "";
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    border-radius: 50%;
+}
+
+input[type=radio]:checked~p {
+    font-weight: 800;
+}
+
+label.colors.rgray input[type=radio]:checked+span::after {
+    background: gray;
+}
+
+label.colors.rblack input[type=radio]:checked+span::after {
+    background: black;
+}
+
+label.colors.purple input[type=radio]:checked+span::after {
+    background: purple;
+}
+
+label.colors.pink input[type=radio]:checked+span::after {
+    background: pink;
+}
+
+label.colors.rgray span::after {
+    background: rgb(209, 208, 208);
+}
+
+label.colors.rblack span::after {
+    background: rgb(131, 131, 131);
+}
+
+label.colors.purple span::after {
+    background: rgb(223, 117, 223);
+}
+
+label.colors.pink span::after {
+    background: rgb(250, 230, 250);
+}
+
+.colors p {
+    margin-top: 35px;
+}
+
+
+
+label.size {
+    border: 1px solid #999;
+    padding: 5px 10px;
+    width: auto;
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    margin-right: 15px;
+
+}
+
+label.size p {
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    font-weight: 400;
+}
+
+/** 상품 가격 출력 **/
+.addProduct p {
+    margin-bottom: 5px;
+}
+
+.addProduct .title p:nth-child(2) {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.addbox span {
+    display: inline-block;
+    width: 80px;
+    padding-top: 10px;
+    padding-bottom: 5px;
+    padding-right: 5px;
+    text-align: right;
+}
+
+li#add {
+    display: flex;
+    align-items: center;
+}
+
+.pmbox>div {
+    margin: 0;
+    padding: 0px 5px;
+    background: #e3e3e3;
+    cursor: pointer;
+}
+
+.pmbox>div>i {
+    line-height: 1;
+    padding: 0;
 }
